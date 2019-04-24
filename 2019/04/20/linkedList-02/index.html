@@ -388,6 +388,17 @@
 
           
           
+             <span id="/2019/04/20/linkedList-02/" class="leancloud_visitors" data-flag-title="数据结构-合并两个有序单链表">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -410,10 +421,10 @@
       
         <p>​        这里采用的是非递归方式,假设两个链表都是递增的。首先找出新的头部，头部所在链表取下一个节点和另外一条链表第一个节点比较，新头部指向较小的，然后又取较小的所在链表的下一个节点和前一次的较大的比较，就这样每一次移一个节点直至有一条链表结束。代码如下:</p>
 <hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 合并两个有序链表</span><br><span class="line"> * @param l1</span><br><span class="line"> * @param l2</span><br><span class="line"> * @return</span><br><span class="line"> */</span><br><span class="line">public static Node mergeLinkedList(Node l1,Node l2) &#123;</span><br><span class="line">    //设两个链表都是从头到尾递增</span><br><span class="line">    Node head = null;</span><br><span class="line">    if (l1 == null) &#123;</span><br><span class="line">        return l2;</span><br><span class="line">    &#125;</span><br><span class="line">    if (l2 == null) &#123;</span><br><span class="line">        return l1;</span><br><span class="line">    &#125;</span><br><span class="line">    if (l1.data &lt;= l2.data) &#123;//如果l1节点的值小于等于l2节点的值，由于这两个链表是有序的，所以合并后最小的节点(head节点)就是它们两者中的小者</span><br><span class="line">        head = l1;</span><br><span class="line">        l1 = l1.next;//后移，用于继续比较选出接下来最小的节点</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        head = l2;</span><br><span class="line">        l2 = l2.next;</span><br><span class="line">    &#125;</span><br><span class="line">    Node temp = head;</span><br><span class="line">    //接着比较两个链表，对两个链表中的最小的节点进行比较选出最小的，也就是合并后的第二小的节点，循环知道有一个链表为空</span><br><span class="line">    while (l1 != null &amp;&amp; l2 != null) &#123;</span><br><span class="line">        if (l1.data &lt;= l2.data) &#123;</span><br><span class="line">            temp.next = l1;</span><br><span class="line">            l1 = l1.next;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            temp.next = l2;</span><br><span class="line">            l2 = l2.next;</span><br><span class="line">        &#125;</span><br><span class="line">        temp = temp.next;</span><br><span class="line">    &#125;</span><br><span class="line">    if (l1 == null) &#123;</span><br><span class="line">        temp.next = l2;</span><br><span class="line">    &#125;</span><br><span class="line">    if (l2 == null) &#123;</span><br><span class="line">        temp.next = l1;</span><br><span class="line">    &#125;</span><br><span class="line">    return head;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 合并两个有序链表</span></span><br><span class="line"><span class="comment"> * @param l1</span></span><br><span class="line"><span class="comment"> * @param l2</span></span><br><span class="line"><span class="comment"> * @return</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Node mergeLinkedList(Node l1,Node l2) &#123;</span><br><span class="line">    <span class="comment">//设两个链表都是从头到尾递增</span></span><br><span class="line">    Node head = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">if</span> (l1 == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> l2;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (l2 == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> l1;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (l1.data &lt;= l2.data) &#123;<span class="comment">//如果l1节点的值小于等于l2节点的值，由于这两个链表是有序的，所以合并后最小的节点(head节点)就是它们两者中的小者</span></span><br><span class="line">        head = l1;</span><br><span class="line">        l1 = l1.<span class="keyword">next</span>;<span class="comment">//后移，用于继续比较选出接下来最小的节点</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        head = l2;</span><br><span class="line">        l2 = l2.<span class="keyword">next</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    Node temp = head;</span><br><span class="line">    <span class="comment">//接着比较两个链表，对两个链表中的最小的节点进行比较选出最小的，也就是合并后的第二小的节点，循环知道有一个链表为空</span></span><br><span class="line">    <span class="keyword">while</span> (l1 != <span class="keyword">null</span> &amp;&amp; l2 != <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (l1.data &lt;= l2.data) &#123;</span><br><span class="line">            temp.<span class="keyword">next</span> = l1;</span><br><span class="line">            l1 = l1.<span class="keyword">next</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            temp.<span class="keyword">next</span> = l2;</span><br><span class="line">            l2 = l2.<span class="keyword">next</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        temp = temp.<span class="keyword">next</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (l1 == <span class="keyword">null</span>) &#123;</span><br><span class="line">        temp.<span class="keyword">next</span> = l2;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (l2 == <span class="keyword">null</span>) &#123;</span><br><span class="line">        temp.<span class="keyword">next</span> = l1;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>​        测试数据:</p>
 <hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">Node n1 = new Node(3);</span><br><span class="line">Node n2 = new Node(5);</span><br><span class="line">Node n3 = new Node(7);</span><br><span class="line">Node n4 = new Node(8);</span><br><span class="line">Node n5 = new Node(9);</span><br><span class="line">Node n6 = new Node(10);</span><br><span class="line">Node n7 = new Node(13);</span><br><span class="line">Node n8 = new Node(14);</span><br><span class="line">n1.setNext(n2);</span><br><span class="line">n2.setNext(n3);</span><br><span class="line">n3.setNext(n4);</span><br><span class="line">n4.setNext(n5);</span><br><span class="line">n5.setNext(n6);</span><br><span class="line">n6.setNext(n7);</span><br><span class="line">n7.setNext(n8);</span><br><span class="line"></span><br><span class="line">Node n9 = new Node(1);</span><br><span class="line">Node n10 = new Node(2);</span><br><span class="line">Node n11 = new Node(20);</span><br><span class="line">n9.setNext(n10);</span><br><span class="line">n10.setNext(n11);</span><br><span class="line"></span><br><span class="line">System.out.println(n1);</span><br><span class="line">System.out.println(n9);</span><br><span class="line">System.out.println(Node.mergeLinkedList(n1,n9));</span><br></pre></td></tr></table></figure>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Node</span> <span class="title">n1</span> = new <span class="keyword">Node</span><span class="title">(3</span>);</span><br><span class="line"><span class="keyword">Node</span> <span class="title">n2</span> = new <span class="keyword">Node</span><span class="title">(5</span>);</span><br><span class="line"><span class="keyword">Node</span> <span class="title">n3</span> = new <span class="keyword">Node</span><span class="title">(7</span>);</span><br><span class="line"><span class="keyword">Node</span> <span class="title">n4</span> = new <span class="keyword">Node</span><span class="title">(8</span>);</span><br><span class="line"><span class="keyword">Node</span> <span class="title">n5</span> = new <span class="keyword">Node</span><span class="title">(9</span>);</span><br><span class="line"><span class="keyword">Node</span> <span class="title">n6</span> = new <span class="keyword">Node</span><span class="title">(10</span>);</span><br><span class="line"><span class="keyword">Node</span> <span class="title">n7</span> = new <span class="keyword">Node</span><span class="title">(13</span>);</span><br><span class="line"><span class="keyword">Node</span> <span class="title">n8</span> = new <span class="keyword">Node</span><span class="title">(14</span>);</span><br><span class="line">n1.setNext(n2);</span><br><span class="line">n2.setNext(n3);</span><br><span class="line">n3.setNext(n4);</span><br><span class="line">n4.setNext(n5);</span><br><span class="line">n5.setNext(n6);</span><br><span class="line">n6.setNext(n7);</span><br><span class="line">n7.setNext(n8);</span><br><span class="line"></span><br><span class="line"><span class="keyword">Node</span> <span class="title">n9</span> = new <span class="keyword">Node</span><span class="title">(1</span>);</span><br><span class="line"><span class="keyword">Node</span> <span class="title">n10</span> = new <span class="keyword">Node</span><span class="title">(2</span>);</span><br><span class="line"><span class="keyword">Node</span> <span class="title">n11</span> = new <span class="keyword">Node</span><span class="title">(20</span>);</span><br><span class="line">n9.setNext(n10);</span><br><span class="line">n10.setNext(n11);</span><br><span class="line"></span><br><span class="line">System.out.println(n1);</span><br><span class="line">System.out.println(n9);</span><br><span class="line">System.out.println(<span class="keyword">Node</span>.<span class="title">mergeLinkedList</span>(n1,n9));</span><br></pre></td></tr></table></figure>
 <p>输出结果:</p>
 <p><img src="/2019/04/20/linkedList-02/hebing.png" alt></p>
 
@@ -529,9 +540,7 @@
 
   
     <div class="comments" id="comments">
-      <div id="lv-container" data-id="city" data-uid="MTAyMC80MzgxNy8yMDM1Mg=="></div>
     </div>
-
   
 
 
@@ -783,17 +792,6 @@
 
 
   
-    <script type="text/javascript">
-      (function(d, s) {
-        var j, e = d.getElementsByTagName(s)[0];
-        if (typeof LivereTower === 'function') { return; }
-        j = d.createElement(s);
-        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-        j.async = true;
-        e.parentNode.insertBefore(j, e);
-      })(document, 'script');
-    </script>
-  
 
 
 
@@ -835,6 +833,113 @@
 
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("rwB3xNS0NPazIXLSuOpRsJFj-gzGzoHsz", "J7kpEbjxKHvgxNY9IVnfzTWX");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 

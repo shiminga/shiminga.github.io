@@ -388,6 +388,17 @@
 
           
           
+             <span id="/2019/04/21/2StackReplQueue/" class="leancloud_visitors" data-flag-title="两个栈实现一个队列">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -409,8 +420,8 @@
 
       
         <p>​        本文使用栈的基本操作实现队列的效果,由于栈的LIFO,两个栈逆逆得顺就能FIFO</p>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">public class MyQueue&lt;T extends Number&gt; &#123;</span><br><span class="line">    Stack&lt;T&gt; data;</span><br><span class="line">    Stack&lt;T&gt; tempData;</span><br><span class="line"></span><br><span class="line">    MyQueue()&#123;</span><br><span class="line">        this.data=new Stack&lt;T&gt;();</span><br><span class="line">        this.tempData=new Stack&lt;T&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    void add(T e)&#123;</span><br><span class="line">        data.push(e);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 两个栈实现对队列的消费操作</span><br><span class="line">     */</span><br><span class="line">    T remove()&#123;</span><br><span class="line">        //放入临时栈</span><br><span class="line">        while (!data.empty())</span><br><span class="line">            tempData.push(data.pop());</span><br><span class="line">        //去掉栈顶元素</span><br><span class="line">        T t= tempData.pop();</span><br><span class="line">        //从临时栈倒回去</span><br><span class="line">        while (!tempData.empty())</span><br><span class="line">            data.push(tempData.pop());</span><br><span class="line">        return t;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">MyQueue queue = new MyQueue();</span><br><span class="line">queue.add(3);</span><br><span class="line">queue.add(4);</span><br><span class="line">queue.add(5);</span><br><span class="line">queue.add(6);</span><br><span class="line">queue.add(7);</span><br><span class="line"></span><br><span class="line">System.out.println(queue.remove());</span><br><span class="line">System.out.println(queue.remove());</span><br><span class="line">System.out.println(queue.remove());</span><br><span class="line">System.out.println(queue.remove());</span><br><span class="line">System.out.println(queue.remove());</span><br></pre></td></tr></table></figure>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">MyQueue&lt;T</span> <span class="keyword">extends</span> <span class="title">Number&gt;</span> </span>&#123;</span><br><span class="line">    <span class="type">Stack</span>&lt;<span class="type">T</span>&gt; data;</span><br><span class="line">    <span class="type">Stack</span>&lt;<span class="type">T</span>&gt; tempData;</span><br><span class="line"></span><br><span class="line">    <span class="type">MyQueue</span>()&#123;</span><br><span class="line">        <span class="keyword">this</span>.data=<span class="keyword">new</span> <span class="type">Stack</span>&lt;<span class="type">T</span>&gt;();</span><br><span class="line">        <span class="keyword">this</span>.tempData=<span class="keyword">new</span> <span class="type">Stack</span>&lt;<span class="type">T</span>&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    void add(<span class="type">T</span> e)&#123;</span><br><span class="line">        data.push(e);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 两个栈实现对队列的消费操作</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="type">T</span> remove()&#123;</span><br><span class="line">        <span class="comment">//放入临时栈</span></span><br><span class="line">        <span class="keyword">while</span> (!data.empty())</span><br><span class="line">            tempData.push(data.pop());</span><br><span class="line">        <span class="comment">//去掉栈顶元素</span></span><br><span class="line">        <span class="type">T</span> t= tempData.pop();</span><br><span class="line">        <span class="comment">//从临时栈倒回去</span></span><br><span class="line">        <span class="keyword">while</span> (!tempData.empty())</span><br><span class="line">            data.push(tempData.pop());</span><br><span class="line">        <span class="keyword">return</span> t;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h4><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">MyQueue<span class="built_in"> queue </span>= new MyQueue();</span><br><span class="line">queue.<span class="builtin-name">add</span>(3);</span><br><span class="line">queue.<span class="builtin-name">add</span>(4);</span><br><span class="line">queue.<span class="builtin-name">add</span>(5);</span><br><span class="line">queue.<span class="builtin-name">add</span>(6);</span><br><span class="line">queue.<span class="builtin-name">add</span>(7);</span><br><span class="line"></span><br><span class="line">System.out.println(queue.<span class="builtin-name">remove</span>());</span><br><span class="line">System.out.println(queue.<span class="builtin-name">remove</span>());</span><br><span class="line">System.out.println(queue.<span class="builtin-name">remove</span>());</span><br><span class="line">System.out.println(queue.<span class="builtin-name">remove</span>());</span><br><span class="line">System.out.println(queue.<span class="builtin-name">remove</span>());</span><br></pre></td></tr></table></figure>
 <p>运行结果:</p>
 <p><img src="/2019/04/21/2StackReplQueue/myqueue.png" alt></p>
 
@@ -526,9 +537,7 @@
 
   
     <div class="comments" id="comments">
-      <div id="lv-container" data-id="city" data-uid="MTAyMC80MzgxNy8yMDM1Mg=="></div>
     </div>
-
   
 
 
@@ -805,17 +814,6 @@
 
 
   
-    <script type="text/javascript">
-      (function(d, s) {
-        var j, e = d.getElementsByTagName(s)[0];
-        if (typeof LivereTower === 'function') { return; }
-        j = d.createElement(s);
-        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-        j.async = true;
-        e.parentNode.insertBefore(j, e);
-      })(document, 'script');
-    </script>
-  
 
 
 
@@ -857,6 +855,113 @@
 
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("rwB3xNS0NPazIXLSuOpRsJFj-gzGzoHsz", "J7kpEbjxKHvgxNY9IVnfzTWX");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 
