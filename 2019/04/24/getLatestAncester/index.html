@@ -112,7 +112,7 @@
 
 
 
-  <meta name="keywords" content="JAVA,数据结构,">
+  <meta name="keywords" content="JAVA,数据结构,二叉树,">
 
 
 
@@ -123,20 +123,18 @@
 
 
 
-<meta name="description" content="​        这里采用的是非递归方式,假设两个链表都是递增的。首先找出新的头部，头部所在链表取下一个节点和另外一条链表第一个节点比较，新头部指向较小的，然后又取较小的所在链表的下一个节点和前一次的较大的比较，就这样每一次移一个节点直至有一条链表结束。代码如下:  123456789101112131415161718192021222324252627282930313233343536373">
-<meta name="keywords" content="JAVA,数据结构">
+<meta name="description" content="&amp;#160;&amp;#160;&amp;#160;&amp;#160;已知二叉树的两个节点，要求找到二者最近的祖先。 &amp;#160;&amp;#160;&amp;#160;&amp;#160;先遍历其中一个节点，保存它到根节点的所有节点，再看另外一个节点的祖先路径与之重叠部分。 12345678910111213141516171819202122232425262728/** * 寻找两个节点最近的祖先 * * @param node1 *">
+<meta name="keywords" content="JAVA,数据结构,二叉树">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据结构-合并两个有序单链表">
-<meta property="og:url" content="https://shiminga.github.io/2019/04/20/linkedList-02/index.html">
+<meta property="og:title" content="二叉树两个节点最近祖先">
+<meta property="og:url" content="https://shiminga.github.io/2019/04/24/getLatestAncester/index.html">
 <meta property="og:site_name" content="石明的个人博客">
-<meta property="og:description" content="​        这里采用的是非递归方式,假设两个链表都是递增的。首先找出新的头部，头部所在链表取下一个节点和另外一条链表第一个节点比较，新头部指向较小的，然后又取较小的所在链表的下一个节点和前一次的较大的比较，就这样每一次移一个节点直至有一条链表结束。代码如下:  123456789101112131415161718192021222324252627282930313233343536373">
+<meta property="og:description" content="&amp;#160;&amp;#160;&amp;#160;&amp;#160;已知二叉树的两个节点，要求找到二者最近的祖先。 &amp;#160;&amp;#160;&amp;#160;&amp;#160;先遍历其中一个节点，保存它到根节点的所有节点，再看另外一个节点的祖先路径与之重叠部分。 12345678910111213141516171819202122232425262728/** * 寻找两个节点最近的祖先 * * @param node1 *">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://shiminga.github.io/2019/04/20/linkedList-02/hebing.png">
-<meta property="og:updated_time" content="2019-04-20T16:30:55.787Z">
+<meta property="og:updated_time" content="2019-04-24T14:10:38.136Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数据结构-合并两个有序单链表">
-<meta name="twitter:description" content="​        这里采用的是非递归方式,假设两个链表都是递增的。首先找出新的头部，头部所在链表取下一个节点和另外一条链表第一个节点比较，新头部指向较小的，然后又取较小的所在链表的下一个节点和前一次的较大的比较，就这样每一次移一个节点直至有一条链表结束。代码如下:  123456789101112131415161718192021222324252627282930313233343536373">
-<meta name="twitter:image" content="https://shiminga.github.io/2019/04/20/linkedList-02/hebing.png">
+<meta name="twitter:title" content="二叉树两个节点最近祖先">
+<meta name="twitter:description" content="&amp;#160;&amp;#160;&amp;#160;&amp;#160;已知二叉树的两个节点，要求找到二者最近的祖先。 &amp;#160;&amp;#160;&amp;#160;&amp;#160;先遍历其中一个节点，保存它到根节点的所有节点，再看另外一个节点的祖先路径与之重叠部分。 12345678910111213141516171819202122232425262728/** * 寻找两个节点最近的祖先 * * @param node1 *">
 
 
 
@@ -166,13 +164,13 @@
 
 
 
-  <link rel="canonical" href="https://shiminga.github.io/2019/04/20/linkedList-02/">
+  <link rel="canonical" href="https://shiminga.github.io/2019/04/24/getLatestAncester/">
 
 
 
 
 
-  <title>数据结构-合并两个有序单链表 | 石明的个人博客</title>
+  <title>二叉树两个节点最近祖先 | 石明的个人博客</title>
   
 
 
@@ -309,7 +307,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://shiminga.github.io/2019/04/20/linkedList-02/">
+    <link itemprop="mainEntityOfPage" href="https://shiminga.github.io/2019/04/24/getLatestAncester/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Shi Ming">
@@ -326,7 +324,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">数据结构-合并两个有序单链表</h1>
+          <h1 class="post-title" itemprop="name headline">二叉树两个节点最近祖先</h1>
         
 
         <div class="post-meta">
@@ -338,8 +336,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-20T00:39:13+08:00">
-                2019-04-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-24T22:00:23+08:00">
+                2019-04-24
               </time>
             
 
@@ -379,8 +377,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/04/20/linkedList-02/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/20/linkedList-02/" itemprop="commentCount"></span>
+                <a href="/2019/04/24/getLatestAncester/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/24/getLatestAncester/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -388,7 +386,7 @@
 
           
           
-             <span id="/2019/04/20/linkedList-02/" class="leancloud_visitors" data-flag-title="数据结构-合并两个有序单链表">
+             <span id="/2019/04/24/getLatestAncester/" class="leancloud_visitors" data-flag-title="二叉树两个节点最近祖先">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -419,15 +417,9 @@
       
 
       
-        <p>​        这里采用的是非递归方式,假设两个链表都是递增的。首先找出新的头部，头部所在链表取下一个节点和另外一条链表第一个节点比较，新头部指向较小的，然后又取较小的所在链表的下一个节点和前一次的较大的比较，就这样每一次移一个节点直至有一条链表结束。代码如下:</p>
-<hr>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 合并两个有序链表</span></span><br><span class="line"><span class="comment"> * @param l1</span></span><br><span class="line"><span class="comment"> * @param l2</span></span><br><span class="line"><span class="comment"> * @return</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Node mergeLinkedList(Node l1,Node l2) &#123;</span><br><span class="line">    <span class="comment">//设两个链表都是从头到尾递增</span></span><br><span class="line">    Node head = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">if</span> (l1 == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> l2;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (l2 == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> l1;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (l1.data &lt;= l2.data) &#123;<span class="comment">//如果l1节点的值小于等于l2节点的值，由于这两个链表是有序的，所以合并后最小的节点(head节点)就是它们两者中的小者</span></span><br><span class="line">        head = l1;</span><br><span class="line">        l1 = l1.<span class="keyword">next</span>;<span class="comment">//后移，用于继续比较选出接下来最小的节点</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        head = l2;</span><br><span class="line">        l2 = l2.<span class="keyword">next</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    Node temp = head;</span><br><span class="line">    <span class="comment">//接着比较两个链表，对两个链表中的最小的节点进行比较选出最小的，也就是合并后的第二小的节点，循环知道有一个链表为空</span></span><br><span class="line">    <span class="keyword">while</span> (l1 != <span class="keyword">null</span> &amp;&amp; l2 != <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (l1.data &lt;= l2.data) &#123;</span><br><span class="line">            temp.<span class="keyword">next</span> = l1;</span><br><span class="line">            l1 = l1.<span class="keyword">next</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            temp.<span class="keyword">next</span> = l2;</span><br><span class="line">            l2 = l2.<span class="keyword">next</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        temp = temp.<span class="keyword">next</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (l1 == <span class="keyword">null</span>) &#123;</span><br><span class="line">        temp.<span class="keyword">next</span> = l2;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (l2 == <span class="keyword">null</span>) &#123;</span><br><span class="line">        temp.<span class="keyword">next</span> = l1;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>​        测试数据:</p>
-<hr>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Node</span> <span class="title">n1</span> = new <span class="keyword">Node</span><span class="title">(3</span>);</span><br><span class="line"><span class="keyword">Node</span> <span class="title">n2</span> = new <span class="keyword">Node</span><span class="title">(5</span>);</span><br><span class="line"><span class="keyword">Node</span> <span class="title">n3</span> = new <span class="keyword">Node</span><span class="title">(7</span>);</span><br><span class="line"><span class="keyword">Node</span> <span class="title">n4</span> = new <span class="keyword">Node</span><span class="title">(8</span>);</span><br><span class="line"><span class="keyword">Node</span> <span class="title">n5</span> = new <span class="keyword">Node</span><span class="title">(9</span>);</span><br><span class="line"><span class="keyword">Node</span> <span class="title">n6</span> = new <span class="keyword">Node</span><span class="title">(10</span>);</span><br><span class="line"><span class="keyword">Node</span> <span class="title">n7</span> = new <span class="keyword">Node</span><span class="title">(13</span>);</span><br><span class="line"><span class="keyword">Node</span> <span class="title">n8</span> = new <span class="keyword">Node</span><span class="title">(14</span>);</span><br><span class="line">n1.setNext(n2);</span><br><span class="line">n2.setNext(n3);</span><br><span class="line">n3.setNext(n4);</span><br><span class="line">n4.setNext(n5);</span><br><span class="line">n5.setNext(n6);</span><br><span class="line">n6.setNext(n7);</span><br><span class="line">n7.setNext(n8);</span><br><span class="line"></span><br><span class="line"><span class="keyword">Node</span> <span class="title">n9</span> = new <span class="keyword">Node</span><span class="title">(1</span>);</span><br><span class="line"><span class="keyword">Node</span> <span class="title">n10</span> = new <span class="keyword">Node</span><span class="title">(2</span>);</span><br><span class="line"><span class="keyword">Node</span> <span class="title">n11</span> = new <span class="keyword">Node</span><span class="title">(20</span>);</span><br><span class="line">n9.setNext(n10);</span><br><span class="line">n10.setNext(n11);</span><br><span class="line"></span><br><span class="line">System.out.println(n1);</span><br><span class="line">System.out.println(n9);</span><br><span class="line">System.out.println(<span class="keyword">Node</span>.<span class="title">mergeLinkedList</span>(n1,n9));</span><br></pre></td></tr></table></figure>
-<p>输出结果:</p>
-<p><img src="/2019/04/20/linkedList-02/hebing.png" alt></p>
-
+        <p>&#160;&#160;&#160;&#160;已知二叉树的两个节点，要求找到二者最近的祖先。</p>
+<p>&#160;&#160;&#160;&#160;先遍历其中一个节点，保存它到根节点的所有节点，再看另外一个节点的祖先路径与之重叠部分。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 寻找两个节点最近的祖先</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> node1</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> node2</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> TreeNode searchNearestAncester(TreeNode node1, TreeNode node2) &#123;</span><br><span class="line">    <span class="keyword">List</span> <span class="keyword">list</span> = <span class="keyword">new</span> ArrayList();</span><br><span class="line">    <span class="keyword">list</span>.add(node1);</span><br><span class="line">    <span class="keyword">if</span> (node1.<span class="keyword">parent</span> != <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">while</span> (node1.<span class="keyword">parent</span> != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">list</span>.add(node1.<span class="keyword">parent</span>);</span><br><span class="line">            node1 = node1.<span class="keyword">parent</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">list</span>.indexOf(node2) != <span class="number">-1</span>)</span><br><span class="line">        <span class="keyword">return</span> node2;</span><br><span class="line">    <span class="keyword">if</span> (node2!= <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">while</span> (node2.<span class="keyword">parent</span>!= <span class="keyword">null</span>) &#123;</span><br><span class="line">            node2 = node2.<span class="keyword">parent</span>;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">list</span>.indexOf(node2) != <span class="number">-1</span>)</span><br><span class="line">                <span class="keyword">return</span> node2;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -448,6 +440,8 @@
           
             <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
           
+            <a href="/tags/二叉树/" rel="tag"># 二叉树</a>
+          
         </div>
       
 
@@ -459,8 +453,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/19/linkedList-01/" rel="next" title="数据结构-单链表反转，取中间值">
-                <i class="fa fa-chevron-left"></i> 数据结构-单链表反转，取中间值
+              <a href="/2019/04/24/getMinAndMaxDepth/" rel="next" title="二叉树的最小深度和最大深度">
+                <i class="fa fa-chevron-left"></i> 二叉树的最小深度和最大深度
               </a>
             
           </div>
@@ -468,10 +462,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/21/stackAndQueue-01/" rel="prev" title="栈和队列">
-                栈和队列 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
