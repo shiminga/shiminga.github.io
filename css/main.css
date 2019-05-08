@@ -1822,7 +1822,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #71b52d;
+  background: #bab150;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2905,5 +2905,12 @@ hr {
   }
 }
 body {
-  background: url("http://www.pptbz.com/pptpic/UploadFiles_6909/201410/2014101515350286.jpg");
+  background: url("https://source.unsplash.com/random/1600x900");
+}
+.main-inner {
+  margin-top: 60px;
+  padding: 60px 60px 60px 60px;
+  background: #fff;
+  opacity: 0.8;
+  min-height: 500px;
 }
