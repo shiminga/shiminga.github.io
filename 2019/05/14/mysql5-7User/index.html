@@ -112,7 +112,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="数据库,mysql,">
 
 
 
@@ -123,13 +123,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="石明的个人博客">
-<meta property="og:url" content="https://shiminga.github.io/categories/随笔/index.html">
+<meta name="description" content="问题​        linux上安装mysql5.7之后，使用mysql -u root -p尝试进入mysql报错ERROR 1045 (28000): Access denied for user ‘root‘@’localhost’ (using password: YES)，从字面意思上看是验证的过程被拒绝，百度并尝试一下方法可解决。 解决 打开/etc/my.cnf配置文件，文件末尾添">
+<meta name="keywords" content="数据库,mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux上mysql5.7版本用户登录问题">
+<meta property="og:url" content="https://shiminga.github.io/2019/05/14/mysql5-7User/index.html">
 <meta property="og:site_name" content="石明的个人博客">
+<meta property="og:description" content="问题​        linux上安装mysql5.7之后，使用mysql -u root -p尝试进入mysql报错ERROR 1045 (28000): Access denied for user ‘root‘@’localhost’ (using password: YES)，从字面意思上看是验证的过程被拒绝，百度并尝试一下方法可解决。 解决 打开/etc/my.cnf配置文件，文件末尾添">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-14T08:46:37.350Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="石明的个人博客">
+<meta name="twitter:title" content="linux上mysql5.7版本用户登录问题">
+<meta name="twitter:description" content="问题​        linux上安装mysql5.7之后，使用mysql -u root -p尝试进入mysql报错ERROR 1045 (28000): Access denied for user ‘root‘@’localhost’ (using password: YES)，从字面意思上看是验证的过程被拒绝，百度并尝试一下方法可解决。 解决 打开/etc/my.cnf配置文件，文件末尾添">
 
 
 
@@ -159,13 +164,13 @@
 
 
 
-  <link rel="canonical" href="https://shiminga.github.io/categories/随笔/">
+  <link rel="canonical" href="https://shiminga.github.io/2019/05/14/mysql5-7User/">
 
 
 
 
 
-  <title>分类: 随笔 | 石明的个人博客</title>
+  <title>linux上mysql5.7版本用户登录问题 | 石明的个人博客</title>
   
 
 
@@ -184,7 +189,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -288,53 +293,250 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>随笔<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://shiminga.github.io/2019/05/14/mysql5-7User/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Shi Ming">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="石明的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/04/19/hello，I'm here/" itemprop="url">
-              
-                <span itemprop="name">Hello ，My Blog!!!</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">linux上mysql5.7版本用户登录问题</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-19T10:01:08+08:00" content="2019-04-19">
-          04-19
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-14T15:39:15+08:00">
+                2019-05-14
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/05/14/mysql5-7User/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/14/mysql5-7User/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/05/14/mysql5-7User/" class="leancloud_visitors" data-flag-title="linux上mysql5.7版本用户登录问题">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><p>​        linux上安装mysql5.7之后，使用mysql -u root -p尝试进入mysql报错<strong>ERROR 1045 (28000): Access denied for user ‘root‘@’localhost’ (using password: YES)</strong>，从字面意思上看是验证的过程被拒绝，百度并尝试一下方法可解决。</p>
+<h4 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h4><ol>
+<li><p>打开/etc/my.cnf配置文件，文件末尾添加<code>skit-grant-tables</code>跳过权限验证，这时可以不用密码登录，网上还有另外一种办法是说找到用户目录中的.mysql_secret里面的随机密码登录，这个我当时没找到</p>
+</li>
+<li><p>使用<strong>mysql -u root</strong>进入mysql，<strong>use mysql;</strong>进入database名为mysql的库,然后修改root用户的密码</p>
+<p><code>update user set authentication_string=password(&quot;你的新密码&quot;) where user=&quot;root&quot;;</code></p>
+</li>
+<li><p>然后使用新的密码登录mysql，我这里是使用了<strong>show datatables;</strong>报错如下，意思是必须重置密码</p>
+</li>
+</ol>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show databases;</span><br><span class="line"><span class="builtin-name">ERROR</span> 1820 (HY000): You must reset your password using ALTER<span class="built_in"> USER </span>statement before executing this statement.</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>然后再使用2.中的语句更新密码，这时又出现了一个错误，意思是密码不合要求</li>
+</ol>
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; alter user 'root'@'localhost' identified by 'admin123';</span><br><span class="line"><span class="keyword">ERROR </span>1819 (HY000): Your password does not satisfy the current policy requirements</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>如果想密码设简单一点可以使用如下语句修改全局参数放宽限制</li>
+</ol>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="built_in">set</span> <span class="built_in">global</span> validate_password_policy=<span class="number">0</span>;</span><br><span class="line">Query OK, <span class="number">0</span> <span class="keyword">rows</span> affected (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; <span class="built_in">set</span> <span class="built_in">global</span> validate_password_length=<span class="number">2</span>;</span><br><span class="line">Query OK, <span class="number">0</span> <span class="keyword">rows</span> affected (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; alter user <span class="string">'root'</span>@<span class="string">'localhost'</span> identified <span class="keyword">by</span> <span class="string">'root'</span>;</span><br><span class="line">Query OK, <span class="number">0</span> <span class="keyword">rows</span> affected (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+<p>借鉴: <a href="https://www.cnblogs.com/gumuzi/p/5711495.html" target="_blank" rel="noopener">https://www.cnblogs.com/gumuzi/p/5711495.html</a></p>
+<p>​         <a href="https://blog.csdn.net/memory6364/article/details/82426052" target="_blank" rel="noopener">https://blog.csdn.net/memory6364/article/details/82426052</a></p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据库/" rel="tag"># 数据库</a>
+          
+            <a href="/tags/mysql/" rel="tag"># mysql</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/07/aboutbinary/" rel="next" title="0和1">
+                <i class="fa fa-chevron-left"></i> 0和1
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -342,6 +544,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -362,8 +571,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -425,6 +643,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决"><span class="nav-number">2.</span> <span class="nav-text">解决</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -557,6 +791,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
