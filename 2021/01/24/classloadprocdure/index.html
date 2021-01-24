@@ -112,7 +112,7 @@
 
 
 
-  <meta name="keywords" content="JAVA,计算机系统,">
+  <meta name="keywords" content="JAVA,JVM,CLASSLOADER,">
 
 
 
@@ -123,18 +123,18 @@
 
 
 
-<meta name="description" content="最初学计算机原理的时候被告知计算机中使用二进制系统，即逢二进一。  Java中的数字都是有符号数，也就是最高位1表示负数0表示正数  有符号数以补码的形式存储  正数反码补码是本身，负数补码是取反加一，所以负数需要取反加一才能得到我们能理解的二进制数   有符号数加减法​        计算中只有加法，结果如果溢出,如int33位，则舍弃最高位。公式为: [A+B]补=[A]补+[B]补 -15+">
-<meta name="keywords" content="JAVA,计算机系统">
+<meta name="description" content="一.概述​        如果要自己实现一个JVM，需要考虑哪些要素呢？对，类加载和执行引擎。类加载就是一个class文件被加载到内存中并且生成一个具备相应结构的运行时数据结构的过程，比如你有一个类，它被加载到内存之后，应该要能有该类的属性可以被访问，方法可以被调用，该类可以生成实例等等。下面来讲一下类加载过程，主要包括三个步骤，加载—&amp;gt;链接(验证，准备，解析)—&amp;gt;初始化 二.加载Lo">
+<meta name="keywords" content="JAVA,JVM,CLASSLOADER">
 <meta property="og:type" content="article">
-<meta property="og:title" content="0和1">
-<meta property="og:url" content="https://shiminga.github.io/2019/05/07/aboutbinary/index.html">
+<meta property="og:title" content="类加载过程">
+<meta property="og:url" content="https://shiminga.github.io/2021/01/24/classloadprocdure/index.html">
 <meta property="og:site_name" content="石明的个人博客">
-<meta property="og:description" content="最初学计算机原理的时候被告知计算机中使用二进制系统，即逢二进一。  Java中的数字都是有符号数，也就是最高位1表示负数0表示正数  有符号数以补码的形式存储  正数反码补码是本身，负数补码是取反加一，所以负数需要取反加一才能得到我们能理解的二进制数   有符号数加减法​        计算中只有加法，结果如果溢出,如int33位，则舍弃最高位。公式为: [A+B]补=[A]补+[B]补 -15+">
+<meta property="og:description" content="一.概述​        如果要自己实现一个JVM，需要考虑哪些要素呢？对，类加载和执行引擎。类加载就是一个class文件被加载到内存中并且生成一个具备相应结构的运行时数据结构的过程，比如你有一个类，它被加载到内存之后，应该要能有该类的属性可以被访问，方法可以被调用，该类可以生成实例等等。下面来讲一下类加载过程，主要包括三个步骤，加载—&amp;gt;链接(验证，准备，解析)—&amp;gt;初始化 二.加载Lo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-08T10:03:36.298Z">
+<meta property="og:updated_time" content="2021-01-24T14:04:43.749Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="0和1">
-<meta name="twitter:description" content="最初学计算机原理的时候被告知计算机中使用二进制系统，即逢二进一。  Java中的数字都是有符号数，也就是最高位1表示负数0表示正数  有符号数以补码的形式存储  正数反码补码是本身，负数补码是取反加一，所以负数需要取反加一才能得到我们能理解的二进制数   有符号数加减法​        计算中只有加法，结果如果溢出,如int33位，则舍弃最高位。公式为: [A+B]补=[A]补+[B]补 -15+">
+<meta name="twitter:title" content="类加载过程">
+<meta name="twitter:description" content="一.概述​        如果要自己实现一个JVM，需要考虑哪些要素呢？对，类加载和执行引擎。类加载就是一个class文件被加载到内存中并且生成一个具备相应结构的运行时数据结构的过程，比如你有一个类，它被加载到内存之后，应该要能有该类的属性可以被访问，方法可以被调用，该类可以生成实例等等。下面来讲一下类加载过程，主要包括三个步骤，加载—&amp;gt;链接(验证，准备，解析)—&amp;gt;初始化 二.加载Lo">
 
 
 
@@ -164,13 +164,13 @@
 
 
 
-  <link rel="canonical" href="https://shiminga.github.io/2019/05/07/aboutbinary/">
+  <link rel="canonical" href="https://shiminga.github.io/2021/01/24/classloadprocdure/">
 
 
 
 
 
-  <title>0和1 | 石明的个人博客</title>
+  <title>类加载过程 | 石明的个人博客</title>
   
 
 
@@ -307,7 +307,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://shiminga.github.io/2019/05/07/aboutbinary/">
+    <link itemprop="mainEntityOfPage" href="https://shiminga.github.io/2021/01/24/classloadprocdure/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Shi Ming">
@@ -324,7 +324,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">0和1</h1>
+          <h1 class="post-title" itemprop="name headline">类加载过程</h1>
         
 
         <div class="post-meta">
@@ -336,8 +336,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-07T16:50:59+08:00">
-                2019-05-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-24T21:13:01+08:00">
+                2021-01-24
               </time>
             
 
@@ -359,8 +359,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/计算机系统/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机系统</span>
+                  <a href="/categories/JVM/" itemprop="url" rel="index">
+                    <span itemprop="name">JVM</span>
                   </a>
                 </span>
 
@@ -377,8 +377,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/05/07/aboutbinary/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/07/aboutbinary/" itemprop="commentCount"></span>
+                <a href="/2021/01/24/classloadprocdure/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2021/01/24/classloadprocdure/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -406,36 +406,45 @@
       
 
       
-        <p>最初学计算机原理的时候被告知计算机中使用<strong>二进制系统</strong>，即逢二进一。</p>
-<ol>
-<li><p>Java中的数字都是<strong>有符号数</strong>，也就是<strong>最高位1表示负数0表示正数</strong></p>
-</li>
-<li><p>有符号数以<strong>补码的形式存储</strong></p>
-</li>
-<li><p><strong>正数反码补码是本身</strong>，<strong>负数补码是取反加一</strong>，所以负数需要取反加一才能得到我们能理解的二进制数</p>
+        <h4 id="一-概述"><a href="#一-概述" class="headerlink" title="一.概述"></a>一.概述</h4><p>​        如果要自己实现一个JVM，需要考虑哪些要素呢？对，类加载和执行引擎。类加载就是一个class文件被加载到内存中并且生成一个具备相应结构的运行时数据结构的过程，比如你有一个类，它被加载到内存之后，应该要能有该类的属性可以被访问，方法可以被调用，该类可以生成实例等等。下面来讲一下类加载过程，主要包括三个步骤，<strong>加载—&gt;链接(验证，准备，解析)—&gt;初始化</strong></p>
+<h4 id="二-加载Loading"><a href="#二-加载Loading" class="headerlink" title="二.加载Loading"></a>二.加载Loading</h4><ol>
+<li>通过一个全类限定名获取定义此类的二进制字节流</li>
+<li>将这个字节流所代表的静态存储结构转化为方法区的运行时数据结构</li>
+<li>在内存中生成一个代表这个类的java.lang.Class对象，作为方法区这个类的各种数据的访问入口</li>
+<li>补充：加载.class文件的方式<ul>
+<li>从本地的系统中直接加载</li>
+<li>通过网络获取，典型场景：web Applet</li>
+<li>从Zip压缩包中读取，成为日后jar,war格式的基础</li>
+<li>运行时计算生成，使用做多的是：动态代理技术</li>
+<li>由其他文件生成，典型场景：JSP应用</li>
+<li>从专有的数据库中读取.class文件，比较少见</li>
+<li>从加密文件中获取，典型的防class文件被反编译的保护措施</li>
+</ul>
 </li>
 </ol>
-<h4 id="有符号数加减法"><a href="#有符号数加减法" class="headerlink" title="有符号数加减法"></a>有符号数加减法</h4><p>​        计算中只有加法，结果如果溢出,如int33位，则舍弃最高位。公式为: <strong><em>[A+B]补=[A]补+[B]补</em></strong></p>
-<h5 id="15-（-15）"><a href="#15-（-15）" class="headerlink" title="-15+（-15）"></a>-15+（-15）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> 11111111  11111111  11111111  11110001    -15补码</span><br><span class="line">+11111111  11111111  11111111  11110001    -15补码</span><br><span class="line">---------------------------------------</span><br><span class="line">111111111  11111111  11111111  11100010    -30补码</span><br><span class="line"> 10000000  00000000  00000000  00011110    -30</span><br></pre></td></tr></table></figure>
-<p>因为最终结果是33位，舍弃最高位。其余32位中最高位1为负数，则后31位取反加一得到原码为</p>
-<p>10000000  00000000  00000000  00011110，转为10进制为-30</p>
-<h5 id="15-49"><a href="#15-49" class="headerlink" title="-15+49"></a>-15+49</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> 11111111  11111111  11111111  11110001    -15补码</span><br><span class="line">+00000000  00000000  00000000  00110001     49补码(与原码相同)</span><br><span class="line">---------------------------------------</span><br><span class="line">100000000  00000000  00000000  00100010     34补码(与原码相同)</span><br><span class="line"> 00000000  00000000  00000000  00100010     34</span><br></pre></td></tr></table></figure>
-<h5 id="1-1"><a href="#1-1" class="headerlink" title="-1+1"></a>-1+1</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> 11111111  11111111  11111111  11111111    -1补码</span><br><span class="line">+00000000  00000000  00000000  00000001     1补码(与原码相同)</span><br><span class="line">---------------------------------------</span><br><span class="line">100000000  00000000  00000000  00000000     0补码</span><br><span class="line"> 00000000  00000000  00000000  00000000     0</span><br></pre></td></tr></table></figure>
-<h5 id="2-31-1-1-即int类型最大值-1"><a href="#2-31-1-1-即int类型最大值-1" class="headerlink" title="(2^31-1)+1  即int类型最大值+1"></a>(2^31-1)+1  即int类型最大值+1</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> 01111111  11111111  11111111  11111111    2^31-1补码</span><br><span class="line">+00000000  00000000  00000000  00000001    1补码(与原码相同)</span><br><span class="line">---------------------------------------</span><br><span class="line"> 10000000  00000000  00000000  00000000   -2^31补码</span><br></pre></td></tr></table></figure>
-<h4 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h4><h5 id="位移运算"><a href="#位移运算" class="headerlink" title="位移运算"></a>位移运算</h5><p>​        1.左移&lt;&lt;和右移&gt;&gt;，这两种是<strong>带符号移位</strong>，移动结果可能正可能负，<strong>只有负数右移高位补1，其余空位补0</strong>。这里使用32位int举例,下面的二进制都是补码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">                       	&lt;&lt;1	             &gt;&gt;1</span><br><span class="line"> 10(1010)              20(10100)	    5(101)</span><br><span class="line">-10(1...0110)         -20(1...01100)	   -5(1...011)</span><br><span class="line"> 55(110111)            110(1101110)         27(11011)</span><br><span class="line">-55(1...001001)       -110(1...0010010)    -28(1...00100)</span><br></pre></td></tr></table></figure>
-<p>​        换个大点的数字看看</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">int l=-2022222221;</span><br><span class="line">二进制补码:10000111011101110101011001110011</span><br><span class="line">&lt;&lt;31:    10000000000000000000000000000000,-2147483648(-2^31),末尾0到最高位</span><br><span class="line">&lt;&lt;32:	 10000111011101110101011001110011,-2022222221</span><br><span class="line">&lt;&lt;1:      00001110111011101010110011100110,250522854</span><br><span class="line">&gt;&gt;1:    11000011101110111010101100111001 ,-1011111111</span><br></pre></td></tr></table></figure>
-<p>​        2.<strong>无符号只有右移&gt;&gt;&gt;</strong>，<strong>空位全部补0</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">int o1=23;</span><br><span class="line">二进制补码: 10111</span><br><span class="line">&gt;&gt;&gt;1:     01011  右移一位最左边一位补0</span><br><span class="line">int l=-30;</span><br><span class="line">二进制补码: 11111111111111111111111111100010</span><br><span class="line">&gt;&gt;&gt;1: 	 01111111111111111111111111110001 右移一位左边补0变成正数2147483633</span><br></pre></td></tr></table></figure>
-<h5 id="其他位运算"><a href="#其他位运算" class="headerlink" title="其他位运算"></a>其他位运算</h5><p>​        包括取反(~)，与(&amp;)，或(|)，异或(^)等。</p>
-<ol>
-<li>取反，即0变1，1变0</li>
-<li>与，即两个都为1则结果为1</li>
-<li>或，即有一个为1就为1</li>
-<li>异或，即相同为0，不同为1</li>
+<h4 id="二-验证Verify"><a href="#二-验证Verify" class="headerlink" title="二.验证Verify"></a>二.验证Verify</h4><ol>
+<li>目的在于确保Class文件的字节流中包含信息符合当前虚拟机要求，保证被加载类的正确性，不会危害虚拟机的自身安全</li>
+<li>主要包括四种验证，文件格式验证(CAFEBABE)，元数据验证，字节码验证，符号引用验证</li>
 </ol>
-<p>各类源码中因其高效性而大量使用位运算，了解其原理可便于阅读源码也可便于了解计算机原理。</p>
+<h4 id="三-准备Prepare"><a href="#三-准备Prepare" class="headerlink" title="三.准备Prepare"></a>三.准备Prepare</h4><ol>
+<li>为类变量分配内存并设置该类变量的默认初始值，即零值</li>
+<li>这里不包括final修饰的static变量，因为这是常量，在准备阶段就会显示初始化了</li>
+<li>这里不会为实例变量分配初始化，类变量会分配在方法区中，而实例变量是会随着对象一起分配到java堆中</li>
+</ol>
+<h4 id="四-解析Reslove"><a href="#四-解析Reslove" class="headerlink" title="四.解析Reslove"></a>四.解析Reslove</h4><ol>
+<li>将常量池内的符号引用转换为直接引用的过程</li>
+<li>事实上，解析操作往往会伴随着JVM在执行完初始化之后再进行</li>
+<li>符号引用就是一组符号来描述所引用的目标，符号引用的字面量形式明确定义再《java虚拟机规范》的class文件格式中，直接引用就是直接指向目标的指针，相对偏移量或一个间接定位到目标的句柄</li>
+<li>解析动作只要针对类或接口，字段，类方法，接口方法，方法类型等，对应常量池中的CONSTANT_Class_info,CONSTANT_Fieldref_info,CONSTANT_Methodref_info等</li>
+</ol>
+<h4 id="五-初始化Initialization"><a href="#五-初始化Initialization" class="headerlink" title="五.初始化Initialization"></a>五.初始化Initialization</h4><ol>
+<li>初始化阶段就是执行类构造器方法<clinit>（）的过程</clinit></li>
+<li>此方法不需定义，是javac编译器自动收集类中的所有类变量的赋值动作和静态代码块中的语句合并而来</li>
+<li>构造器方法中指令按语句在源文件中出现的顺序执行</li>
+<li><clinit>（）不同于类的构造器。（关联：构造器是虚拟机视角下的<init>()）</init></clinit></li>
+<li>若该类具有父类，JVM会保证子类的<clinit>（）执行前，弗雷的<clinit>（）已经执行完毕</clinit></clinit></li>
+<li>虚拟机必须保证一个类的<clinit>（）方法在多线程下被同步加锁</clinit></li>
+</ol>
 
       
     </div>
@@ -455,7 +464,9 @@
           
             <a href="/tags/JAVA/" rel="tag"># JAVA</a>
           
-            <a href="/tags/计算机系统/" rel="tag"># 计算机系统</a>
+            <a href="/tags/JVM/" rel="tag"># JVM</a>
+          
+            <a href="/tags/CLASSLOADER/" rel="tag"># CLASSLOADER</a>
           
         </div>
       
@@ -468,8 +479,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/29/threadPoolExecutor/" rel="next" title="关于ThreadPoolExecutor线程池">
-                <i class="fa fa-chevron-left"></i> 关于ThreadPoolExecutor线程池
+              <a href="/2021/01/24/classicvm/" rel="next" title="常见的几种JVM">
+                <i class="fa fa-chevron-left"></i> 常见的几种JVM
               </a>
             
           </div>
@@ -477,10 +488,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/14/mysql5-7User/" rel="prev" title="linux上mysql5.7版本用户登录问题">
-                linux上mysql5.7版本用户登录问题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -655,7 +662,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#有符号数加减法"><span class="nav-number">1.</span> <span class="nav-text">有符号数加减法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#15-（-15）"><span class="nav-number">1.1.</span> <span class="nav-text">-15+（-15）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#15-49"><span class="nav-number">1.2.</span> <span class="nav-text">-15+49</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1"><span class="nav-number">1.3.</span> <span class="nav-text">-1+1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-31-1-1-即int类型最大值-1"><span class="nav-number">1.4.</span> <span class="nav-text">(2^31-1)+1  即int类型最大值+1</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#位运算"><span class="nav-number">2.</span> <span class="nav-text">位运算</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#位移运算"><span class="nav-number">2.1.</span> <span class="nav-text">位移运算</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#其他位运算"><span class="nav-number">2.2.</span> <span class="nav-text">其他位运算</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一-概述"><span class="nav-number">1.</span> <span class="nav-text">一.概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二-加载Loading"><span class="nav-number">2.</span> <span class="nav-text">二.加载Loading</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二-验证Verify"><span class="nav-number">3.</span> <span class="nav-text">二.验证Verify</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三-准备Prepare"><span class="nav-number">4.</span> <span class="nav-text">三.准备Prepare</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四-解析Reslove"><span class="nav-number">5.</span> <span class="nav-text">四.解析Reslove</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五-初始化Initialization"><span class="nav-number">6.</span> <span class="nav-text">五.初始化Initialization</span></a></li></ol></div>
             
 
           </div>
